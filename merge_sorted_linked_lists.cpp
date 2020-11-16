@@ -41,18 +41,18 @@ node * merge_two_list(node *l1, node *l2)
     node *root = NULL;
 
     //check if either of the linked list is empty.
-    if(l1 == NULL)  //if list1 is empty then make the root list2 as root and return
+    if(l1 == NULL)  //if list1 is empty then make the root of list2 as root and return
     {
       root = l2;
       return root;
     }
-    else if(l2 == NULL)//else if list2 is empty then make the root list1 as root and return
+    else if(l2 == NULL)//else if list2 is empty then make the root of list1 as root and return
     {
       root = l1;
       return root;
     }
 
-    node *temp1 = l1;
+    node *temp1 = l1;   //well, we don't need these pointers but we can use l1 and l2 themselves.
     node *temp2 = l2;
     while(temp1 != NULL && temp2 != NULL) //traverse both the list.
     {
@@ -66,12 +66,12 @@ node * merge_two_list(node *l1, node *l2)
       else if(temp1 -> val < temp2 -> val) //if ll1 has smaller node than in ll2 then insert that node.
       {
         root = insert(temp1 -> val, root);
-        temp1 = temp1 -> next;          //move on to the next node.
+        temp1 = temp1 -> next;          //move on to the next node in ll1.
       }
       else if(temp1 -> val > temp2 -> val) //else ll2 has smaller node than in ll1 then insert that node.
       {
         root = insert(temp2 -> val, root);
-        temp2 = temp2 -> next;         //move on to the next node.
+        temp2 = temp2 -> next;         //move on to the next node in ll2.
       }
     }
 
@@ -103,7 +103,7 @@ int main()
   cin >> n;
   for(i = 0; i < n; i++)
   {
-     cout << "Enter data: ";
+     cout << "Enter data: ";     //assuming you'll enter the data in sorted order
      cin >> data;
      l1 = insert(data, l1);
   }
@@ -116,7 +116,7 @@ int main()
   cin >> n;
   for(i = 0; i < n; i++)
   {
-    cout << "Enter data: ";
+    cout << "Enter data: ";     //assuming you'll enter the data in sorted order. 
     cin >> data;
     l2 = insert(data, l2);
   }
